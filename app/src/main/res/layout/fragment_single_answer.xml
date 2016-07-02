@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/BaseQuestion"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/question_part" />
+
+    <GridLayout
+        android:padding="@dimen/choices_padding"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="1">
+
+        <RadioGroup
+            android:id="@+id/rdGroup"
+            android:layout_width="match_parent">
+            <RadioButton
+                style="@style/ChoiceText"
+                android:id="@+id/rdChoice1"
+                android:text="@string/choice_dummy" />
+            <RadioButton
+                style="@style/ChoiceText"
+                android:id="@+id/rdChoice2"
+                android:text="@string/choice_dummy" />
+            <RadioButton
+                style="@style/ChoiceText"
+                android:id="@+id/rdChoice3"
+                android:text="@string/choice_dummy" />
+            <RadioButton
+                style="@style/ChoiceText"
+                android:id="@+id/rdChoice4"
+                android:text="@string/choice_dummy"
+                android:layout_width="wrap_content" />
+        </RadioGroup>
+    </GridLayout>
+
+    <include layout="@layout/answer_part" />
+</LinearLayout>

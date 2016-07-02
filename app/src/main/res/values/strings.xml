@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Color Quiz App</string>
+    <string name="question_number_label">Question #</string>
+    <string name="answer_label">Your Answer: </string>
+    <string name="question_number">1</string>
+    <string name="question_dummy">What is the sample question you want to ask?</string>
+    <string name="correct_answer_label">Correct Answer(s):</string>
+    <string name="answer_dummy">Sample Answer</string>
+
+    <string name="question_format_single" formatted="false">In %s colors, what is the the result of %s + %s?</string>
+    <string name="question_format_multiple" formatted="false">In %s colors, what do you need to add to have the color %s?</string>
+    <string name="choice_dummy">Sample Choice</string>
+    <string name="question_direction">Answer the following questions:</string>
+
+</resources>
