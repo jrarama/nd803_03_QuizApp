@@ -90,14 +90,13 @@ public class QuizGenerator {
 
     public ArrayList<Question> randomQuestions() {
         ArrayList<Question> questions = new ArrayList<>();
-        Random random = new Random();
+        List<ColorCombination> shuffled = new ArrayList<>(COMBINATION_LIST);
+        Collections.shuffle(shuffled);
 
         int i = 0;
         final int len = QUESTION_TYPES.length;
-        for (ColorCombination combination: COMBINATION_LIST) {
-            // Make sure that all Question Types are used first
-            int index = i < len ? i : random.nextInt(len);
-            QuestionType type = QUESTION_TYPES[index];
+        for (ColorCombination combination: shuffled) {
+            QuestionType type = QUESTION_TYPES[i % len];
             Question question = createQuestion(type, combination);
             questions.add(question);
             ++i;

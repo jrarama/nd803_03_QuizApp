@@ -11,5 +11,8 @@
     <string name="question_format_multiple" formatted="false">In %s colors, what do you need to add to have the color %s?</string>
     <string name="choice_dummy">Sample Choice</string>
     <string name="question_direction">Answer the following questions:</string>
+    <string name="reset">Reset</string>
+    <string name="grade">Grade</string>
+    <string name="grade_message" formatted="false">"You got %d out of %d question!"</string>
 
 </resources>

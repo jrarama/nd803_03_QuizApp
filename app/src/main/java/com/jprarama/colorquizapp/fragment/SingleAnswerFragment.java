@@ -5,16 +5,12 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.jprarama.colorquizapp.R;
 import com.jprarama.colorquizapp.entity.MyColor;
-import com.jprarama.colorquizapp.entity.Question;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -44,6 +40,7 @@ public class SingleAnswerFragment extends BaseQuestionFragment {
         radioGroup = (RadioGroup) rootView.findViewById(R.id.rdGroup);
 
         setQuestion();
+        setAnswerVisible(gradeVisible);
         return rootView;
     }
 
@@ -56,7 +53,9 @@ public class SingleAnswerFragment extends BaseQuestionFragment {
 
         int i = 0;
         for (MyColor color: question.getChoices()) {
-            choices.get(i++).setText(color.toString());
+            RadioButton radioButton = choices.get(i++);
+            radioButton.setText(color.toString());
+            radioButton.setChecked(false);
         }
     }
 
@@ -68,6 +67,7 @@ public class SingleAnswerFragment extends BaseQuestionFragment {
             return false;
         }
         String answer = ((RadioButton) rootView.findViewById(selected)).getText().toString();
-        return validAnswers.size() == 1 && answer.equals(validAnswers.get(0));
+        isCorrect = validAnswers.size() == 1 && answer.equals(validAnswers.get(0));
+        return isCorrect;
     }
 }

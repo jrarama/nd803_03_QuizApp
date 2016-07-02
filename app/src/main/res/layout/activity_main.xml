@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
+    android:id="@+id/mainLayout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:focusableInTouchMode="true"
     tools:context="com.jprarama.colorquizapp.MainActivity">
 
     <ScrollView
+        android:id="@+id/scrollViews"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
         <LinearLayout
             android:orientation="vertical"
@@ -18,4 +23,25 @@
 
         </LinearLayout>
     </ScrollView>
-</RelativeLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height">
+
+        <Button
+            style="@style/ButtonStyle"
+            android:id="@+id/btnReset"
+            android:text="@string/reset"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+        <Button
+            style="@style/ButtonStyle"
+            android:id="@+id/btnGrade"
+            android:text="@string/grade"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+</LinearLayout>

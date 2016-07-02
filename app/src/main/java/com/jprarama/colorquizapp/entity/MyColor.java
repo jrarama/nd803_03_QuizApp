@@ -1,6 +1,5 @@
 package com.jprarama.colorquizapp.entity;
 
-import android.graphics.Color;
 import android.text.TextUtils;
 
 import java.util.ArrayList;

@@ -6,14 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 
 import com.jprarama.colorquizapp.R;
 import com.jprarama.colorquizapp.entity.MyColor;
-import com.jprarama.colorquizapp.entity.Question;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -38,6 +34,7 @@ public class MultipleAnswersFragment extends BaseQuestionFragment {
                 (CheckBox) rootView.findViewById(R.id.chkChoice4)
         );
         setQuestion();
+        setAnswerVisible(gradeVisible);
         return rootView;
     }
 
@@ -50,22 +47,26 @@ public class MultipleAnswersFragment extends BaseQuestionFragment {
 
         int i = 0;
         for (MyColor color: question.getChoices()) {
-            choices.get(i++).setText(color.toString());
+            CheckBox checkBox = choices.get(i++);
+            checkBox.setText(color.toString());
+            checkBox.setChecked(false);
         }
     }
 
     @Override
     public boolean isAnswerCorrect() {
-        List<String> answers = new ArrayList<>();
+        isCorrect = true;
         for (CheckBox checkBox: choices) {
-            if (checkBox.isChecked()) {
-                String selected = checkBox.getText().toString();
-                answers.add(selected);
-                if (!validAnswers.contains(selected)) {
-                    return false;
-                }
+            MyColor selected = MyColor.valueOf(checkBox.getText().toString());
+            boolean checked = checkBox.isChecked();
+            boolean contains = question.getAnswers().contains(selected);
+
+            if (checked != contains) {
+                isCorrect = false;
+                break;
             }
         }
-        return answers.size() == validAnswers.size();
+
+        return isCorrect;
     }
 }

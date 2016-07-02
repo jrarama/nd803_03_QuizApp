@@ -1,7 +1,5 @@
 package com.jprarama.colorquizapp.entity;
 
-import com.jprarama.colorquizapp.QuizGenerator;
-
 import java.util.Arrays;
 import java.util.List;
 

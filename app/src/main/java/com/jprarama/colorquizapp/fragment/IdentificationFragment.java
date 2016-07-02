@@ -26,12 +26,22 @@ public class IdentificationFragment extends BaseQuestionFragment {
         txtAnswer = (EditText) rootView.findViewById(R.id.etAnswer);
 
         setQuestion();
+
+        setAnswerVisible(gradeVisible);
         return rootView;
+    }
+
+    @Override
+    public void setQuestion() {
+        super.setQuestion();
+
+        txtAnswer.setText("");
     }
 
     @Override
     public boolean isAnswerCorrect() {
         String answer = String.valueOf(txtAnswer.getText());
-        return answer.equalsIgnoreCase(question.getAnswers().get(0).toString());
+        isCorrect = answer.equalsIgnoreCase(question.getAnswers().get(0).toString());
+        return isCorrect;
     }
 }
